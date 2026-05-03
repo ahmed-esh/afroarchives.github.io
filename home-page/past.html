@@ -132,19 +132,20 @@
     }
 
     .p1 {
-      font-family: monospace;
-      font-size: 15px;
-      text-align: middle;
+      font-family: Georgia, 'Times New Roman', Times, serif;
+      font-size: 20px;
+      text-align: left;
       line-height: 20px;
-      margin-left: 12px;
+      margin-left: 10px;
       display: inline-block;
-      width: 200px;
+      width: 300px;
+      color: white;
 
 
     }
 
     .p2 {
-      font-family: monospace;
+      font-family: Georgia, 'Times New Roman', Times, serif;
       font-size: 15px;
       text-align: right;
       line-height: 20px;
@@ -226,6 +227,136 @@
   </style>
   <!-- End Music Styles-->
 
+  <!-- Start Timeline Styles-->
+  <style>
+    /* The actual timeline (the vertical ruler) */
+    .timeline {
+      position: relative;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    /* The actual timeline (the vertical ruler) */
+    .timeline::after {
+      content: '';
+      position: absolute;
+      width: 6px;
+      background-color: white;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      margin-left: -3px;
+    }
+
+    /* Container around content */
+    .container {
+      padding: 10px 40px;
+      position: relative;
+      background-color: inherit;
+      width: 50%;
+    }
+
+    /* The circles on the timeline */
+    .container::after {
+      content: '';
+      position: absolute;
+      width: 25px;
+      height: 25px;
+      right: -17px;
+      background-color: white;
+      border: 4px solid #FF9F55;
+      top: 15px;
+      border-radius: 50%;
+      z-index: 1;
+    }
+
+    /* Place the container to the left */
+    .left {
+      left: 0;
+    }
+
+    /* Place the container to the right */
+    .right {
+      left: 50%;
+    }
+
+    /* Add arrows to the left container (pointing right) */
+    .left::before {
+      content: " ";
+      height: 0;
+      position: absolute;
+      top: 22px;
+      width: 0;
+      z-index: 1;
+      right: 30px;
+      border: medium solid white;
+      border-width: 10px 0 10px 10px;
+      border-color: transparent transparent transparent white;
+    }
+
+    /* Add arrows to the right container (pointing left) */
+    .right::before {
+      content: " ";
+      height: 0;
+      position: absolute;
+      top: 22px;
+      width: 0;
+      z-index: 1;
+      left: 30px;
+      border: medium solid white;
+      border-width: 10px 10px 10px 0;
+      border-color: transparent white transparent transparent;
+    }
+
+    /* Fix the circle for containers on the right side */
+    .right::after {
+      left: -16px;
+    }
+
+    /* The actual content */
+    .content {
+      padding: 20px 30px;
+      background-color: white;
+      position: relative;
+      border-radius: 6px;
+    }
+
+    /* Media queries - Responsive timeline on screens less than 600px wide */
+    @media screen and (max-width: 600px) {
+
+      /* Place the timelime to the left */
+      .timeline::after {
+        left: 31px;
+      }
+
+      /* Full-width containers */
+      .container {
+        width: 100%;
+        padding-left: 70px;
+        padding-right: 25px;
+      }
+
+      /* Make sure that all arrows are pointing leftwards */
+      .container::before {
+        left: 60px;
+        border: medium solid white;
+        border-width: 10px 10px 10px 0;
+        border-color: transparent white transparent transparent;
+      }
+
+      /* Make sure all circles are at the same spot */
+      .left::after,
+      .right::after {
+        left: 15px;
+      }
+
+      /* Make all right containers behave like the left ones */
+      .right {
+        left: 0%;
+      }
+    }
+  </style>
+
   <!-- Start Footer Styles-->
   <style>
     footer {
@@ -244,8 +375,8 @@
 
   <!-- Top row for options-->
   <ul class="topnav">
-    <li><a class="active" href="home.html">Home</a></li>
-    <li><a href='past.html'>Past</a></li>
+    <li><a href="home.html">Home</a></li>
+    <li><a class="active" href='past.html'>Past</a></li>
     <li><a href='present.html'>Present</a></li>
     <li><a href='future.html'>Future</a></li>
     <li><a href='definitions.html'>Definitions</a></li>
@@ -254,19 +385,60 @@
 
 
   <body>
-    <div class="div-video">
-      <h2 class="thesis-div"> How the Trans-Atlantic Slave Trade Displaced Africans</h2>
-      <iframe width="560" height="315" src="https://www.youtube.com/embed/0IJrhQE6DZk?si=7Q4GyxkwGjEP-6ND"
-        title="YouTube video player" frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-      <img src="slaveShip.png">
+    <!-- Timeline Example-->
+    <div class="timeline">
+      <div class="container left">
+        <div class="content">
+          <h2>1400s - 1800s: Trans-Atlantic Slave Trade
+          </h2>
+          <p>Portugese, Spanish, Dutch, English, and French ships began to
+            transport enslaved Africans for labor along the west coast of Africa to
+            the Carribean, North, and South America. The Middle Passage was the route
+            in which ships travelled as many as 300 miles for 2 months. Over 15 million
+            Africans were enslaved and displaced.</p>
+        </div>
+      </div>
+      <div class="container right">
+        <div class="content">
+          <h2>2016</h2>
+          <p>Lorem ipsum..</p>
+        </div>
+      </div>
+      <div class="container left">
+        <div class="content">
+          <h2>1400s - 1800s: Trans-Atlantic Slave Trade
+          </h2>
+          <p>Portugese, Spanish, Dutch, English, and French ships began to
+            transport enslaved Africans for labor along the west coast of Africa to
+            the Carribean, North, and South America. The Middle Passage was the route
+            in which ships travelled as many as 300 miles for 2 months. Over 15 million
+            Africans were enslaved and displaced.</p>
+        </div>
+      </div>
     </div>
-    <div class="row">
-      <div class="column">
+
+
+    <div>
+      <!-- Trans Atlantic Slave Trade History-->
+      <div class="div-video">
+        <h2 class="thesis-div"> How the Trans-Atlantic Slave Trade Displaced Africans</h2>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/0IJrhQE6DZk?si=7Q4GyxkwGjEP-6ND"
+          title="YouTube video player" frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        <p class="p1">
+          “Since first encounters with the imperial machine, African bodies, lands, and
+          knowledge have been instrumentalized within vast systems of extraction, domination,
+          and erasure. From the transatlantic slave trade to colonial rule, Africans were not only
+          displaced and dispossessed but rendered pawns in geopolitical and economic games designed
+          for the benefit of others” (Osei).
+        </p>
 
       </div>
     </div>
+
+    <div>
+
     </div>
   </body>
 
